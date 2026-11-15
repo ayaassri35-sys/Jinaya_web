@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Titan One', cursive, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --color-bjorbun-dark: #082119;
+  --color-bjorbun-green: #0e372b;
+  --color-bjorbun-green-light: #154d3d;
+  --color-bjorbun-green-surface: #103d30;
+  --color-bjorbun-cream: #f6e7b9;
+  --color-bjorbun-cream-light: #fbf7ee;
+  --color-bjorbun-cream-dark: #e6d39c;
+  --color-bjorbun-gold: #f2b93b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0e372b;
+  color: #f6e7b9;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+/* Background doodle pattern overlay */
+.bg-doodles {
+  background-image: radial-gradient(rgba(246, 231, 185, 0.06) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(246, 231, 185, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px, 18px 18px;
+  background-position: 0 0, 18px 18px;
+}
+
+/* Custom marquee animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Spin animation for rotating badge */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+/* Float animation for hero burger ingredients */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-2deg); }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #082119;
+}
+::-webkit-scrollbar-thumb {
+  background: #f6e7b9;
+  border-radius: 9999px;
+  border: 2px solid #082119;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e6d39c;
+}
